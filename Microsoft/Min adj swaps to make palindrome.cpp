@@ -1,3 +1,9 @@
+//Minimum adjacent swaps required to make a string palindrome.
+//input:"strings to check and a zero for ending input"
+//maann
+//namna
+//0
+
 #include <bits/stdc++.h>
 using namespace std;
 int main(){ 

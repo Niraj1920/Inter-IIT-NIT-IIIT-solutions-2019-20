@@ -1,4 +1,76 @@
 //Minimum adjacent swaps required to make a string palindrome.
+/*
+#include<bits/stdc++.h>
+using namespace std;
+int ch[256];
+void move_to(string &s,int a,int b){
+    char x=s[a];
+    for(int i=a;i<b;++i){
+        s[i]=s[i+1];
+    }
+    s[b]=x;
+}
+void move_from(string &s,int a,int b){
+    char x=s[a];
+    for(int i=a;i>b;--i){
+        s[i]=s[i-1];
+    }
+    s[b]=x;
+}
+int main(){
+    int t,n,res,d,e;
+    string s;
+    //cin>>t;
+    while(1){
+        cin>>s;
+        if(s=="0")
+            break;
+        res=0;
+        n=s.length();
+        memset(ch,0,sizeof(ch));
+        d=0;
+        for(int i=0;i<n;++i){
+            ch[s[i]]++;
+            if(ch[s[i]]&1)
+                d++;
+            else
+                d--;
+        }
+        if(d>1){
+            cout<<"Impossible\n";
+            continue;
+        }
+        for(int i=0;i<n/2;++i){
+            if(s[i]!=s[n-i-1]){
+                d=1000;
+                e=-1000;
+                for(int j=i+1;j<n-i-1;++j){
+                    if(s[j]==s[n-i-1]){
+                        d=j;
+                        break;
+                    }
+                }
+                for(int j=n-i-2;j>i;--j){
+                    if(s[j]==s[i]){
+                        e=j;
+                        break;
+                    }
+                }
+                res+=min(d-i,n-i-1-e);
+                if(d-i < n-1-i-e)
+                    move_from(s,d,i);
+                else
+                    move_to(s,e,n-i-1);
+
+            }
+            //cout<<s;
+        }
+        cout<<res<<endl;
+    }
+return 0;
+}
+
+*/
 
 #include <bits/stdc++.h>
 

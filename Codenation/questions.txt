@@ -10,14 +10,17 @@ Examples:
 ---------------------------------------------------------------------
 Question 2: BIT Land
 
-Given a string S of length N containing only 0-9, you have to make all the frequency of digits even by removing digits from the number S. Remove in a way such that the difference between the index of first and last digit removed is minimum and length of the resulting string is maximum. Output -1 if removal of digits is not required or it is not possible to get a resulting string.
+Given a string S of length N containing only 0-9, you have to make all the frequency of digits even by removing digits from number S.
+Remove in a way such that the difference between the index of first and last digit removed is minimum and length of the resulting string
+is maximum. Output -1 if removal of digits is not required or it is not possible to get a resulting string.
 
 Examples:
 0001112233 => 1 (Remove 0 of index 2 and 1 of index 3)
 -------------------------------------------------------------------------
 Question 3: TAKER Tree
 
-Lets define a taker tree of size N + 1 as a tree whose nodes are from 0 to N and parent of node X is obtained by removing the last set bit of X. Given N find the length of the longest path existing between any 2 nodes.
+Lets define a taker tree of size N + 1 as a tree whose nodes are from 0 to N and parent of node X is obtained by removing the last
+set bit of X. Given N find the length of the longest path existing between any 2 nodes.
 
 Constraints:
 1 <= T <= 100,000

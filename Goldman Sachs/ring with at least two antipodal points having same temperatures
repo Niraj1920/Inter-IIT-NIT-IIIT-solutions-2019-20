@@ -1,0 +1,20 @@
+BONUS: Suppose a ring is heated so that the temperature varies continuously over it.
+Show that there exists a pair of diametrically opposite points (also called antipodal
+points) that have the same temperature.
+
+Parameterize the ring by θ, i.e., each point on the ring corresponds to a value of
+θ ∈ [0, 2π).
+The temperature on the ring T(θ) is then a continuous function of θ; in
+addition, we have T(0) = T(2π) since both θ = 0 and θ = 2π correspond to the same point.
+
+Define f(θ) = T(θ)−T(θ+π) for over [0, π]. The function f calculates the temperature
+difference between all pairs of antipodal points. We wish to show that this difference
+is zero for some pair, i.e., f(c) = 0 for some c in [0, π].
+
+Note that f must be necessarily continuous on [0, π] since T is continuous. Furthermore,
+f(0) = T(0) − T(θ) and f(π) = T(π) − T(2π) = T(π) − T(0) so that f(0) = −f(π).
+Note that if f(0) = 0, we are done. Otherwise, f(0) is either positive or negative.
+We can assume without loss of generality that it’s the latter; then f(π) must be positive
+so we have f(0) < 0 < f(π).
+The intermediate value theorem then guarantees that at some c ∈ (0, π), we must have
+f(c) = 0 ⇔ T(c) = T(c + π).

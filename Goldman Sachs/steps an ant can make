@@ -1,0 +1,40 @@
+Initial Solution
+
+Problems such as these fall in the category of Markov chains and one way to solve this is through first step analysis.
+
+We shall denote the vertices of the cube by numbers from 1 to 8 with 1 and 8 being the opposite ends of the body diagonal.
+
+enter image description here
+
+Let vi denote the expected number of steps to reach the vertex numbered 8 starting at vertex numbered i.
+
+v1=1+13(v2+v4+v6); v2=1+13(v1+v3+v7); v3=1+13(v2+v4+v8); v4=1+13(v1+v3+v5); v5=1+13(v4+v6+v8); v6=1+13(v1+v5+v7); v7=1+13(v6+v2+v8); v8=0;
+
+Note that by symmetry you have v2=v4=v6 and v3=v5=v7.
+
+Hence, v1=1+v2 and v2=1+13(v1+2v3) and v3=1+23v2.
+
+Solving we get
+v1v2=v4=v6v3=v5=v7=10=9=7
+Hence, the expected number of steps to reach the diagonally opposite vertex is 10.
+
+-------------------------------------------------------------------------------------------------------------------
+---ALTER---
+
+Call the set containing only the starting vertex A. You can move to any of three vertices next. Call the set of them B. For the next step, you can go back to A, or you can move on to any of three new vertices. Call the set of those vertices C. Finally, call the set containing the goal vertex D.
+
+Call the expected number of steps from A to D E(AD) etc.
+
+Consider E(BD). We can write an equation for E(BD) by considering what happens if you start at B and take two steps. You could go to C and then to D. The probability of this is 2/3 for the first step and 1/3 for the second, or 2/9 over all.
+
+You could also go to C and back, or to A and back. Either way, your new expected number of steps to D is the same as it was before, because you're back where you started. The probability of this is 7/9 because probabilities add to one.
+
+This gives
+
+E(BD)=2/9(2)+7/9(2+E(BD))
+which means
+
+E(BD)=9
+It takes one step to go from A to B, so
+
+E(AD)=10

@@ -3,6 +3,7 @@ Given d dice each with f faces, numbered from 1 to f, find the number of ways to
 s is the summation of values on each face when all the dice are thrown.
 */
 //Alter method can be using bactracking
+//Solution using dp..
 #include <iostream>
 #include <vector>
 using namespace std;

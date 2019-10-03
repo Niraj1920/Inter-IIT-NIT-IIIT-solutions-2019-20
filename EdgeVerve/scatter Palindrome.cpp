@@ -17,15 +17,15 @@ bool isPalindrome(string temp){
 bool canbePalindrome(string temp){
     int a[26] = {0};
     for(int i=0; i<temp.length(); i++){
-        cout<<temp[i]-97<<" ";
+        //cout<<temp[i]-97<<" ";
         a[temp[i]-97]++;
     }
-    cout<<endl;
+    //cout<<endl;
     int count = 0;
     for(int i=0; i<26; i++){
-        cout<<a[i]<<" ";
+        //cout<<a[i]<<" ";
         if(a[i]%2 == 1) count++;
-    }cout<<endl;
+    }//cout<<endl;
     if(count > 1)   return false;
     return true;
 }
@@ -40,7 +40,8 @@ int main()
             string temp = s.substr(i, j);
             //cout<<temp<<endl;
             if(iscanbePalindrome(temp)){
-                cout<<temp<<" "<<++count<<endl;
+                count++;
+                //cout<<temp<<" "<<++count<<endl;
             } 
         }
     }

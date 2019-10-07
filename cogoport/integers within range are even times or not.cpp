@@ -5,7 +5,7 @@ here. For each prefix if we store XOR , then by checking if prefix XOR is 0 or n
 Hi there, for the case of zero you can make a similar prefix array of number of zeroes then counting the number of zeroes in a range
 is trivial.
 
-//******************-> The solution with xor is incorrect as it is possible for 3 numbers to have xor = 0 e.g. 1^2^3 = 0.
+//***Fails here************-> The solution with xor is incorrect as it is possible for 3 numbers to have xor = 0 e.g. 1^2^3 = 0.
 
 */
 #include <iostream>

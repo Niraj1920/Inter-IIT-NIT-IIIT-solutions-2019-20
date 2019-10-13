@@ -59,3 +59,47 @@ int main()
 	cout<<"\nresult: "<<rollstring(roll,input)<<endl;
 	return 0;
 }
+/*
+// ASCII indexing is a bit wrong in this....
+#include <iostream>
+using namespace std;
+
+void roll_str(string &s, int roll[], int n){
+    int temp[n] = {0};
+    for(int i=0; i<n; i++){
+        temp[0] += 1;
+        if(roll[i] < n && roll[i] >= 0) temp[roll[i]] += -1;
+    }
+     for(int i=0; i<n; i++)  
+     cout<<temp[i]<<" ";
+     cout<<endl;
+     temp[0] %= 26;
+    for(int i=1; i<n; i++){
+        temp[i] += temp[i-1];
+        //temp[i] %= 26;
+        cout<<temp[i]<<" ";
+    }cout<<endl;
+    for(int i=0; i<n; i++){
+        s[i] += temp[i];
+        //if(s[i]>123)    s[i] -= 97;
+    }
+    cout<<s<<endl;
+    return;
+}
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    int n;
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    int roll[n];
+	    for(int i=0; i<n; i++)  cin>>roll[i];
+	    roll_str(s, roll, n);
+	    
+	}
+	return 0;
+}
+*/

@@ -63,25 +63,20 @@ int main()
 // ASCII indexing is a bit wrong in this....
 #include <iostream>
 using namespace std;
-
 void roll_str(string &s, int roll[], int n){
     int temp[n] = {0};
     for(int i=0; i<n; i++){
         temp[0] += 1;
         if(roll[i] < n && roll[i] >= 0) temp[roll[i]] += -1;
     }
-     for(int i=0; i<n; i++)  
-     cout<<temp[i]<<" ";
-     cout<<endl;
-     temp[0] %= 26;
+    temp[0] %= 26;
     for(int i=1; i<n; i++){
         temp[i] += temp[i-1];
-        //temp[i] %= 26;
-        cout<<temp[i]<<" ";
-    }cout<<endl;
+        temp[i] %= 26;
+    }
     for(int i=0; i<n; i++){
-        s[i] += temp[i];
-        //if(s[i]>123)    s[i] -= 97;
+        int pos = s[i] - 'a';
+        s[i] = 'a' + (pos+temp[i])%26;
     }
     cout<<s<<endl;
     return;

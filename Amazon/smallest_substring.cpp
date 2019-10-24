@@ -1,64 +1,62 @@
-#include<bits/stdc++.h>
+/*
+Smallest window that contains all characters of string itself
+Given a string, find the smallest window length with all distinct characters of the given string. For eg. str = “aabcbcdbca”, then the 
+result would be 4 as of the smallest window will be “dbca” .
+Examples:
+Input  : aabcbcdbca
+Output : dbca
+Explanation : 
+dbca of length 4 is the smallest 
+window with highest number of distinct
+characters.         
+Input : aaab
+Output : ab
+Explanation : 
+ab of length 2 is the smallest window 
+with highest number of distinct characters.    
+*/
+#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int smallest(string s)
-{
-	int n=s.length();
-	if(n<=1)
-		return n;
-	set<char> st;
-	string T="";
-	for(int i=0;i<n;i++)
-	{
-		if(st.find(s[i])==st.end())
-		{
-			st.insert(s[i]);
-			T+=s[i];
-		}
-	}
-
-	vector<int> v1(256,0);
-	vector<int> v2(256,0);
-	int m = T.length();
-	for(int i=0;i<m;i++)
-		v2[T[i]]++;
-	int count=0,start=0,in=-1,len=n;
-
-	for(int i=0;i<n;i++)
-	{
-		v1[s[i]]++;
-		if(v2[s[i]]!=0 && v1[s[i]]<=v2[s[i]])
-			count++;
-		if(count==m)		
-		{
-			while(v1[s[start]]>v2[s[start]] || v2[s[start]]==0)
-			{
-				if(v1[s[start]] > v2[s[start]])
-				{	v1[s[start]]--;
-					start++;
-				}
-			}
-			int l=i-start+1;
-			if(l<len)
-			{
-				in=start;
-				len=l;
-			}
-		}
-	}
-	return len;
-
+int shortestSubstring(string str){
+    int len = str.length(), distinct = 0;
+    vector<int> freq(26, -1);
+    for(int i=0; i<len; i++){
+        freq[str[i] - 'a'] = 0;
+    }
+    for(int i=0; i<len; i++){
+        if(freq[i] == 0)    distinct++;
+    }
+    int temp = 0, min_len = INT_MAX;
+    for(int i=0, j=0; i<len; i++){
+        if(freq[str[i] - 'a'] == 0) {
+            freq[str[i] - 'a']++;
+            temp++;
+        }
+        else{
+            freq[str[i] - 'a']++;
+        }
+        //cout<<temp<<" "<<distinct<<" "<<i<<" "<<j<<endl;//aabcbcdbca
+        if(temp == distinct){
+            while(freq[str[j] - 'a'] > 1){
+                freq[str[j] - 'a']--; 
+                j++; 
+            } 
+            int len_window = i - j + 1; 
+            if(min_len > len_window){ 
+                min_len = len_window; 
+            } 
+        }
+    }
+    return min_len;
 }
-
-
-
 
 int main()
 {
-	string s;
-	cin>>s;
-
-	cout<<smallest(s);
-
-	return 0;
+    string str;
+    cin>>str;
+    int res = shortestSubstring(str);
+    cout<<res;
+    return 0;
 }
